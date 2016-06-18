@@ -8,8 +8,12 @@ defmodule TimeConvert do
           |> +(@epoch)
           |> :calendar.gregorian_seconds_to_datetime
           |> Date.from
-          |> Timex.format("%D %I:%M %p", :strftime)
+          |> Timex.format("%D", :strftime)
     t
+  end
+
+  def from_timestamp(:error) do
+    "--"
   end
 
 end

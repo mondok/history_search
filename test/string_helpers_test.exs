@@ -23,4 +23,10 @@ defmodule StringHelpersTest do
     t = "  hi "
     assert StringHelpers.trim(t) == "hi"
   end
+
+  test "can pretty format results" do
+    t = {:ok, [{:record, "06/16/16 12:00 AM", "sudo nginx"}]}
+    r = StringHelpers.pretty_print(t)
+    assert r == "06/16/16 12:00 AM: sudo nginx"
+  end
 end

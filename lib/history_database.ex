@@ -16,7 +16,7 @@ defmodule HistoryDatabase do
   end
 
   def parse(contents) do
-    rows = String.split(contents, "\n") |> Enum.map(
+    String.split(contents, "\n") |> Enum.map(
           fn line ->
             split_line(line)
           end
@@ -49,20 +49,14 @@ defmodule HistoryDatabase do
 
   def search_database(term, recs) do
     recs |>
-      Enum.filter(fn {_, _, content} -> match(content, term) end)
-  end
-
-  def match(content, term) do
-    func = fn(c) -> c |> String.downcase |> String.strip |> String.replace(" ", "") end
-    cmd = func.(content)
-    ptrn = func.(term)
-    String.contains?(cmd, ptrn)
+      Enum.filter(fn {_, _, content} -> StringHelpers.match_content(content, term) end)
   end
 
   defp loop(data) do
     receive do
       {:search, term, from} ->
-        send(from, :ok)
+        results = search_database(term, data)
+        send(from, {:ok, results})
         loop(data)
     end
   end

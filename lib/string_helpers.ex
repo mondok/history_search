@@ -3,10 +3,19 @@ defmodule StringHelpers do
 
   def trim(str) do str |> String.strip end
 
+  def match_content(nil, _) do false end
+
   def match_content(content, term) do
     func = fn(c) -> c |> String.downcase |> String.strip |> String.replace(" ", "") end
     cmd = func.(content)
     ptrn = func.(term)
+    # IO.puts "command is #{cmd} and pattern is #{ptrn} and contains is #{String.contains?(cmd, ptrn)}"
     String.contains?(cmd, ptrn)
+  end
+
+  def pretty_print({:ok, recs}) do
+    recs |> Enum.map(fn {:record, ts, cmd} ->
+      "#{ts}: #{cmd}"
+    end) |> Enum.join("\n")
   end
 end

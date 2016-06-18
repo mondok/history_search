@@ -22,6 +22,6 @@ defmodule HistoryDatabaseTest do
     recs = HistoryDatabase.create_database("test/test.txt")
     res = HistoryDatabase.search_database("sudo nginx", recs)
     assert Enum.count(res) == 1
-    assert List.first(res) == {:record, "06/16/16 12:00 AM", "sudo nginx"}
+    assert List.first(res) == {:record, "06/16/16", "sudo nginx"}
   end
 end

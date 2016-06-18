@@ -4,3 +4,6 @@
 erl_crash.dump
 *.ez
 .DS_Store
+.tags
+.tags1
+history_search
