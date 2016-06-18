@@ -21,6 +21,9 @@ Use quotes to deal with spaces:
 ## Building
 `Make` copies the binary to the `bin` folder.    
 
+## Running tests
+    mix test
+
 
 
 
