@@ -24,17 +24,16 @@ defmodule HistorySearch do
 
   def path_to_use do
     zsh = Path.expand("~/.zsh_history")
-    bash = Path.expand("~/.bash_history")
     if File.exists?(zsh) do
       zsh
     else
-      bash
+      Path.expand("~/.bash_history")
     end
   end
 
   defp parse_args(args) do
     {options, _, _} = OptionParser.parse(args,
-      switches: [command: :string]
+      switches: [command: :string, file: :string]
     )
     options
   end
