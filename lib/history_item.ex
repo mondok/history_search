@@ -1,0 +1,2 @@
+defmodule HistoryItem do
+end

@@ -1,0 +1,8 @@
+: 1466029331:0;git checkout abc13
+: 1466029335:0;git rebase -i develop
+: 1466029344:0;testing ticket open -p
+: 1466029377:0;testing ticket submit -f
+: 1466087701:0;rsu
+: 1466087706:0;sudo nginx
+: 1466087855:0;foreman start
+: 1466089850:0;ls -la
