@@ -8,7 +8,7 @@ defmodule HistorySearch do
     search(options[:command], options[:file])
   end
 
-  def search(nil, file_path) do
+  def search(nil, _) do
     IO.puts "Term cannot be nil"
   end
 
