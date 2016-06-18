@@ -1,19 +1,26 @@
-# Bash or ZSH history search helper
+# Bash/ZSH history search helper
+While this can be done simply by grepping your history, this makes life a bit easier by formatting the output.  It searches `zsh_history` or `bash_history`.  At the moment, it defaults to `zsh_history` if avaibable, otherwise falls back to `bash_history`.
 
-**TODO: Add description**
-
+## Requirements
+1. Erlang as this uses escript to create the executable.
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+ 1. Copy `/bin/history_search` to your PATH
 
-  1. Add history_search to your list of dependencies in `mix.exs`:
+## Usage
+The `command` flag is the term that you'd like to search for:
 
-        def deps do
-          [{:history_search, "~> 0.0.1"}]
-        end
+    history_search --command=ls
 
-  2. Ensure history_search is started before your application:
+Use quotes to deal with spaces:
 
-        def application do
-          [applications: [:history_search]]
-        end
+    history_search --command="ls -la"
+
+## Building
+`Make` copies the binary to the `bin` folder.    
+
+
+
+
+
+    
