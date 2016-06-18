@@ -2,7 +2,9 @@
 While this can be done simply by grepping your history, this makes life a bit easier by formatting the output.  It searches `zsh_history` or `bash_history`.  At the moment, it defaults to `zsh_history` if avaibable, otherwise falls back to `bash_history`.
 
 ## Requirements
+
 1. Erlang as this uses escript to create the executable.
+
 ## Installation
 
  1. Copy `/bin/history_search` to your PATH
