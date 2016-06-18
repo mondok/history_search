@@ -5,15 +5,19 @@ defmodule HistorySearch do
 
   def parse_search(options) do
     IO.puts "Search for #{options[:command]}"
-    options[:command] |> search
+    search(options[:command], options[:file])
   end
 
-  def search(nil) do
+  def search(nil, file_path) do
     IO.puts "Term cannot be nil"
   end
 
-  def search(search_command) do
-    pid = HistoryDatabase.new(path_to_use)
+  def search(search_command, nil) do
+    search(search_command, path_to_use)
+  end
+
+  def search(search_command, file_path) do
+    pid = HistoryDatabase.new(file_path)
     res = HistoryDatabase.search(pid, search_command)
     IO.puts StringHelpers.pretty_print(res)
   end
