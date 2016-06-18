@@ -9,7 +9,6 @@ defmodule StringHelpers do
     func = fn(c) -> c |> String.downcase |> String.strip |> String.replace(" ", "") end
     cmd = func.(content)
     ptrn = func.(term)
-    # IO.puts "command is #{cmd} and pattern is #{ptrn} and contains is #{String.contains?(cmd, ptrn)}"
     String.contains?(cmd, ptrn)
   end
 
