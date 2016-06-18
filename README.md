@@ -23,7 +23,7 @@ Pass in your own history file:
     history_search --command="ls -la" --file="something.txt"
 
 ## Building
-`Make` copies the binary to the `bin` folder.    
+`make` copies the binary to the `bin` folder.    
 
 ## Running tests
     mix test
